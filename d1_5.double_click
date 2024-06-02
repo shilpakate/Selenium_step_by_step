@@ -1,0 +1,21 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+URL = 'https://demo.guru99.com/test/simple_context_menu.html'
+driver = webdriver.Chrome()
+driver.get(URL)
+driver.maximize_window()
+time.sleep(4)
+
+action_chain_obj = ActionChains(driver)
+
+# double click button xpath
+double_clck_btn_xpath = '//*[@id="authentication"]/button'
+double_clck_btn_obj = driver.find_element(By.XPATH, double_clck_btn_xpath)
+
+action_chain_obj.double_click(double_clck_btn_obj).perform()
+
+time.sleep(4)
+driver.close()
