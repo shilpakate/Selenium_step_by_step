@@ -1,0 +1,28 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+
+driver=webdriver.Chrome()
+url="https://practicetestautomation.com/"
+
+#Open browser and nevigate url
+driver.get(url)
+driver.maximize_window()
+time.sleep(4)
+
+#click operation
+hello_text_path='//*[@id="loop-container"]/div/article/div[1]/h1'
+response=driver.find_element(By.XPATH,hello_text_path).text
+print("Response_text::",response)
+
+#check is displayed
+hello_text_path='//*[@id="loop-container"]/div/article/div[1]/h1'
+response=driver.find_element(By.XPATH,hello_text_path).is_displayed()
+print("Response_isdisplayed()::",response)
+
+#check is enabled
+hello_text_path='//*[@id="loop-container"]/div/article/div[1]/h1'
+response=driver.find_element(By.XPATH,hello_text_path).is_enabled()
+print("Response_isenabled()::",response)
+
+
