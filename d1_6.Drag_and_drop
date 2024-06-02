@@ -1,0 +1,24 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver import ActionChains
+
+URL = 'https://testautomationpractice.blogspot.com/'
+driver = webdriver.Chrome()
+driver.get(URL)
+driver.maximize_window()
+time.sleep(3)
+
+action = ActionChains(driver)
+
+src_xpath = '//*[@id="draggable"]'
+dest_xpath = '//*[@id="droppable"]'
+
+src = driver.find_element(By.XPATH, src_xpath)
+dest = driver.find_element(By.XPATH, dest_xpath)
+
+# drag and drop
+action.drag_and_drop(src, dest).perform()
+
+time.sleep(5)
+driver.close()
