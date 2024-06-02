@@ -1,0 +1,38 @@
+import time
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+driver=webdriver.Chrome()
+URL = 'https://demo.guru99.com/test/radio.html'
+driver.get(URL)
+time.sleep(4)
+driver.maximize_window()
+
+#get Xpath of checkbox
+
+xpath_ck1 ='//*[@id="vfb-6-0"]'
+xpath_ck2='//*[@id="vfb-6-1"]'
+xpath_ck3='//*[@id="vfb-6-2"]'
+
+#click method
+res1=driver.find_element(By.XPATH,xpath_ck1).click()
+res2=driver.find_element(By.XPATH,xpath_ck2).click()
+res3=driver.find_element(By.XPATH,xpath_ck3).click()
+
+print(f"Click respose::{res1},{res2},{res3}")
+
+#isenabled
+res1=driver.find_element(By.XPATH,xpath_ck1).is_enabled()
+res2=driver.find_element(By.XPATH,xpath_ck2).is_enabled()
+res3=driver.find_element(By.XPATH,xpath_ck3).is_enabled()
+
+print(f"Is enabled response::{res1},{res2},{res3}")
+
+#isselected
+res1=driver.find_element(By.XPATH,xpath_ck1).is_selected()
+res2=driver.find_element(By.XPATH,xpath_ck2).is_selected()
+res3=driver.find_element(By.XPATH,xpath_ck3).is_selected()
+
+print(f"Is selected respose::{res1},{res2},{res3}")
+
+time.sleep(4)
+driver.close()
