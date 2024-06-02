@@ -1,0 +1,31 @@
+import time
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+
+# open browser and navigate url
+URL = 'https://www.google.com/'
+driver.get(URL)
+# open browser and navigate url
+driver.maximize_window()
+
+time.sleep(3)
+
+driver.back()
+time.sleep(5)
+driver.forward()
+
+# get page title
+pg_title = driver.title
+print("pg_title ::", pg_title)
+
+# get current url
+get_current_url = driver.current_url
+print("get_current_url ::", get_current_url)
+
+# refresh page
+driver.refresh()
+
+time.sleep(2)
+# close browser
+driver.close()
